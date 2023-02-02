@@ -1,0 +1,144 @@
+                    if (quarmx == 1 && quarmn == 7) {quarmx = 0; quarmn = 0;}
+                                        else if (quarmx == 2 && quarmn == 0) {quarmx = 1; quarmn = 1;}
+                                        else if (quarmx == 3 && quarmn == 1) {quarmx = 2; quarmn = 2;}
+                                        else if (quarmx == 4 && quarmn == 2) {quarmx = 3; quarmn = 3;}
+                                        else if (quarmx == 5 && quarmn == 3) {quarmx = 4; quarmn = 4;}
+                                        else if (quarmx == 6 && quarmn == 4) {quarmx = 5; quarmn = 5;}
+                                        else if (quarmx == 7 && quarmn == 5) {quarmx = 6; quarmn = 6;}
+                                        else if (quarmx == 0 && quarmn == 6) {quarmx = 7; quarmn = 7;}
+
+                    switch (quarmx){
+                        case 0: {
+                            //
+                            if (den[i][j+1]<=outOfBound)break;
+                            //
+                            vyn[i][j+1]+=magU*vy[i][j]/2;
+                            vxn[i][j+1]+=magU*vx[i][j]/2;
+                            denn[i][j+1]+=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                            den[i][j]-=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                        }break;
+                        case 1: {
+                            //
+                            if (den[i-1][j+1]<=outOfBound)break;
+                            //
+                            vyn[i-1][j+1]+=magU*vy[i][j]/2;
+                            vxn[i-1][j+1]+=magU*vx[i][j]/2;
+                            denn[i-1][j+1]+=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                            den[i][j]-=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                        }break;
+                        case 2: {
+                            //
+                            if (den[i-1][j]<=outOfBound)break;
+                            //
+                            vyn[i-1][j]+=magU*vy[i][j]/2;
+                            vxn[i-1][j]+=magU*vx[i][j]/2;
+                            denn[i-1][j]+=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                            den[i][j]-=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                        }break;
+                        case 3: {
+                            //
+                            if (den[i-1][j-1]<=outOfBound)break;
+                            //
+                            vyn[i-1][j-1]+=magU*vy[i][j]/2;
+                            vxn[i-1][j-1]+=magU*vx[i][j]/2;
+                            denn[i-1][j-1]+=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                            den[i][j]-=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                        }break;
+                        case 4: {
+                            //
+                            if (den[i][j-1]<=outOfBound)break;
+                            //
+                            vyn[i][j-1]+=magU*vy[i][j]/2;
+                            vxn[i][j-1]+=magU*vx[i][j]/2;
+                            denn[i][j-1]+=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                            den[i][j]-=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                        }break;
+                        case 5: {
+                            //
+                            if (den[i+1][j-1]<=outOfBound)break;
+                            //
+                            vyn[i+1][j-1]+=magU*vy[i][j]/2;
+                            vxn[i+1][j-1]+=magU*vx[i][j]/2;
+                            denn[i+1][j-1]+=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                            den[i][j]-=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                        }break;
+                        case 6: {
+                            //
+                            if (den[i+1][j]<=outOfBound)break;
+                            //
+                            vyn[i+1][j]+=magU*vy[i][j]/2;
+                            vxn[i+1][j]+=magU*vx[i][j]/2;
+                            denn[i+1][j]+=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                            den[i][j]-=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                        }break;
+                        case 7: {
+                            //
+                            if (den[i+1][j+1]<=outOfBound)break;
+                            //
+                            vyn[i+1][j+1]+=magU*vy[i][j]/2;
+                            vxn[i+1][j+1]+=magU*vx[i][j]/2;
+                            denn[i+1][j+1]+=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                            den[i][j]-=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                        }break;
+                    }
+
+
+
+                    int qMxY = -2, qMxX = -2;
+                                        switch (quarmx){
+                                            case 0: qMxY = 0;   qMxX = 1;   break;
+                                            case 1: qMxY = -1;  qMxX = 1;   break;
+                                            case 2: qMxY = -1;  qMxX = 0;   break;
+                                            case 3: qMxY = -1;  qMxX = -1;  break;
+                                            case 4: qMxY = 0;   qMxX = -1;  break;
+                                            case 5: qMxY = 1;   qMxX = -1;  break;
+                                            case 6: qMxY = 1;   qMxX = 0;   break;
+                                            case 7: qMxY = 1;   qMxX = 1;   break;
+                                        }
+                                        if (!(den[i+qMxY][j+qMxX]<=outOfBound) && (qMxX != -2) && (qMxY != -2)){
+                                            vyn[i+qMxY][j+qMxX]+=magU*vy[i][j]/2;
+                                            vxn[i+qMxY][j+qMxX]+=magU*vx[i][j]/2;
+                                            //
+                                            denn[i+qMxY][j+qMxX]+=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                                            den[i][j]-=mag(vy[i][j],vx[i][j])*magU*den[i][j]/g;
+                                        }
+
+    void screenshot(){
+        string filename = "Screenshot_";
+        filename.append(currentDateTime());
+        filename.append(".txt");
+        std::ofstream file (filename);
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++)
+                file << out[i][j];
+            file << endl;
+        }
+    }
+    string convertDen(double a){
+            //select version
+            string out = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
+            //out = "@$#*!=;:~-,. ";
+            //
+            double step;
+            double max = 1300;
+            double min = 850;
+            step = (max-min)/out.length();
+            for (int i = 0; i < out.length(); i++){
+                string tmp = "";
+                if (i == out.length()-1) {if (a>max-(2*step)){return tmp+(out[(out.length()-1-i)]);}}
+                else if (a<=max-(out.length()*step)+(i*step)){return tmp+(out[(out.length()-1-i)]);}
+            }
+
+            cout << "\n\n\n\n\nValue is not in bound - Value: " << a;
+            return "T";
+        }
+
+    const string currentDateTime() {
+        time_t     now = time(0);
+        struct tm  tstruct;
+        char       buf[80];
+        tstruct = *localtime(&now);
+        strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
+
+        return buf;
+    }
